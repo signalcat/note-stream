@@ -3,7 +3,6 @@ var path = require('path');
 var debug = require('debug');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var Sequelize = require('sequelize');
 var models = require('./models');
@@ -22,7 +21,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // routes setup
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -57,9 +55,16 @@ app.use(function(err, req, res, next) {
 
 // db setup
 models.sequelize.sync().then(function () {
-  var server = app.listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + server.address().port);
+  models.Course.create({
+    title: "Mathematical Foundations of Computing",
+    catalog_id: "CS 103",
+    description: "Mathematical foundations required for computer science, including propositional predicate logic, induction, sets, functions, and relations. Formal language theory, including regular expressions, grammars, finite automata, Turing machines, and NP-completeness. Mathematical rigor, proof techniques, and applications. Prerequisite: 106A or equivalent.",
+    term: "AUT1617"
   });
+});
+  
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
 });
 
 module.exports = app;
