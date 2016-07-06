@@ -6,6 +6,7 @@ var ErrorMessage = React.createClass({
     return (
       <DefaultLayout title={this.props.title}>
         <div>We got an error</div>
+        <p>{this.props.message}</p>
       </DefaultLayout>
     );
   }
