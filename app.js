@@ -54,14 +54,7 @@ app.use(function(err, req, res, next) {
 });
 
 // db setup
-models.sequelize.sync().then(function () {
-  models.Course.create({
-    title: "Mathematical Foundations of Computing",
-    catalog_id: "CS 103",
-    description: "Mathematical foundations required for computer science, including propositional predicate logic, induction, sets, functions, and relations. Formal language theory, including regular expressions, grammars, finite automata, Turing machines, and NP-completeness. Mathematical rigor, proof techniques, and applications. Prerequisite: 106A or equivalent.",
-    term: "AUT1617"
-  });
-});
+models.sequelize.sync();
   
 var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + server.address().port);
