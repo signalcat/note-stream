@@ -51,6 +51,38 @@ var SearchFrame = React.createClass({
   }
 });
 
+// var PickDetail = React.createClass({
+//   render: function() {
+//     return (
+//       <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+//         <div class="modal-dialog">
+//             <div class="modal-content">
+//                 <div class="modal-header">
+//                     <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+//                 </div>
+//                 <div class="modal-body">
+//                     <img class="img-responsive" src="http://placehold.it/555x300"></img>
+//                     This was my first project in this class. I learned a lot about HTML and CSS.
+//                 </div>
+//                 <div class="modal-footer">
+//                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     );
+//   }
+// });
+
+var DetailBtn = React.createClass({
+  render: function(){
+    return(
+      <button onClick={this.props.onMagicClick}> Launch demo modal
+      </button>
+    );
+  }
+});
+
 var EditorPick = React.createClass({
   render: function() {
     return (
@@ -77,7 +109,13 @@ var EditorPick = React.createClass({
   }
 });
 
+
 var Index = React.createClass({
+  showDetail: function(){
+    console.log("!!!!!!!");
+  alert('TAADAH!');
+  },
+
   render: function() {
     return (
       <DefaultLayout>
@@ -89,6 +127,7 @@ var Index = React.createClass({
           </div>
         </div>
         <EditorPick/>
+        <DetailBtn onMagicClick={this.showDetail} />
       </DefaultLayout>
     );
   }
